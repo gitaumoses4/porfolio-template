@@ -1,0 +1,63 @@
+@import "tailwindcss";
+@plugin '../../hero.ts';
+@source '../../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: hsl(var(--heroui-background));
+    color: hsl(var(--heroui-foreground));
+    font-family: var(--font-sans);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Animations */
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 3px hsl(var(--heroui-primary) / 0.20);
+  }
+  50% {
+    box-shadow: 0 0 0 7px hsl(var(--heroui-primary) / 0.04);
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--heroui-default-900));
+  border-radius: 2px;
+}
+
+/* Print styles for resume PDF export */
+@media print {
+  nav, footer, .print-hidden { display: none !important; }
+  main { padding: 0 !important; margin: 0 !important; }
+  body { background: white !important; color: #374151 !important; margin: 0 !important; }
+  @page { margin: 0.5in; size: A4; }
+
+  .print-edu { break-inside: avoid; }
+
+  /* Never orphan a section heading at the bottom of a page */
+  h2 { break-after: avoid; }
+}
