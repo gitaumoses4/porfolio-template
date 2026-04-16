@@ -24,6 +24,7 @@
     "@payloadcms/richtext-lexical": "^3.76.1",
     "@payloadcms/storage-vercel-blob": "^3.76.1",
     "@vercel/analytics": "^1.6.1",
+    "@vercel/speed-insights": "^2.0.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.34.0",
     "next": "16.1.6",

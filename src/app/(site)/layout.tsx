@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import type { ReactNode } from 'react'
 import Script from 'next/script'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import '../globals.css'
 import { Providers } from '../providers'
 import { Nav } from '@/components/layout/Nav'
@@ -73,6 +74,7 @@ export default async function SiteLayout({ children }: { children: ReactNode }) 
           </div>
         </Providers>
         <Analytics />
+        <SpeedInsights/>
       </body>
     </html>
   )
